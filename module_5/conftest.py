@@ -1,6 +1,8 @@
-from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 import pytest
+
+link = "http://selenium1py.pythonanywhere.com/"
 
 @pytest.fixture(scope="function")
 def browser():
@@ -13,9 +15,9 @@ def browser():
 def pytest_addoption(parser):
     parser.addoption('--language', action='store', default='en-GB', help='Chose language: ru, en-GB, de, fr')
 
-@pytest.fixture(scope='function')
-def language_browser(request):
-    language = request.config.getoption("language")
+def browser(language):
+    print(f"\nstart{language} vesion..")
+
     options = Options()
     options.add_experimental_option('prefs', {'intl.accept_languages': language})
     print('\nstart Chrome browser...')
