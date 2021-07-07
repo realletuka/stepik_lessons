@@ -1,1 +1,0 @@
-Hi! This is my first test project on Stepic platform!
